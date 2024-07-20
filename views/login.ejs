@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <style>
+        body {
+            font-family: system-ui;
+            font-weight: bold;
+            background: #000;
+            color: #fff;
+        }
+
+        form {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            padding: 20px;
+            background: rgb(40, 39, 39);
+            border-radius: 10px;
+        }
+
+        .input {
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .input input {
+            padding: 15px;
+            border: none;
+            outline: none;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .submit {
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .submit input {
+            padding: 15px;
+            border: none;
+            outline: none;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+            background: orange;
+        }
+
+        .link a{
+            text-decoration: none;
+            color: dodgerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/login" method="post">
+        <h2>Login</h2>
+        <div class="input">
+            <label for="username">Username</label>
+            <input type="text" name="username">
+        </div>
+        <div class="input">
+            <label for="password">Password</label>
+            <input type="text" name="password">
+        </div>
+        <div class="submit">
+            <input type="submit" value="Login">
+            <div class="link">
+                <a href="/register">Don't have an account? Sign Up</a>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
