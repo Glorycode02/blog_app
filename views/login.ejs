@@ -4,92 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
+    <title><%= title %></title>
     <style>
         body {
-            font-family: system-ui;
-            font-weight: bold;
-            background: #000;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
             color: #fff;
-        }
-
-        form {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
             display: flex;
-            flex-direction: column;
-            height: auto;
-            padding: 20px;
-            background: rgb(40, 39, 39);
-            border-radius: 10px;
-        }
-
-        .input {
-            display: flex;
-            gap: 20px;
-            flex-direction: column;
-            align-items: start;
+            align-items: center;
             justify-content: center;
-            padding: 15px;
+            height: 100vh;
+            margin: 0;
         }
 
-        .input input {
-            padding: 15px;
-            border: none;
-            outline: none;
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
             width: 100%;
-            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        .submit {
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .submit-group {
             display: flex;
-            gap: 20px;
             flex-direction: column;
-            align-items: start;
-            justify-content: center;
-            padding: 15px;
         }
 
-        .submit input {
-            padding: 15px;
+        .submit-group input {
+            padding: 14px;
             border: none;
-            outline: none;
-            width: 100%;
             border-radius: 8px;
-            font-weight: bold;
-            background: orange;
+            background: #ff8c00;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        .link a{
+        .submit-group input:hover {
+            background: #ffa500;
+            transform: translateY(-2px);
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .link a {
+            color: #00c6ff;
             text-decoration: none;
-            color: dodgerblue;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .link a:hover {
+            color: #00a0e9;
         }
     </style>
 </head>
 
 <body>
-    <form action="/login" method="post">
-        <h2>Login</h2>
-        <div class="input">
-            <label for="username">Username</label>
-            <input type="text" name="username">
-        </div>
-        <div class="input">
-            <label for="password">Password</label>
-            <input type="text" name="password">
-        </div>
-        <div class="submit">
-            <input type="submit" value="Login">
+    <div class="form-container">
+        <form action="/login" method="post">
+            <h2>Login</h2>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="submit-group">
+                <input type="submit" value="Login">
+            </div>
             <div class="link">
                 <a href="/register">Don't have an account? Sign Up</a>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
 
 </html>

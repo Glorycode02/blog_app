@@ -4,11 +4,12 @@ const Blogs = require("../models/blog")
 const User = require("../models/user")
 
 
-router.get("/login", (req, res) => {
+router.get("/login", async (req, res) => {
     res.render("login", {
         title: 'Login page'
     })
 })
+
 router.get("/register", (req, res) => {
     res.render("register", {
         title: 'Register'
@@ -23,7 +24,7 @@ router.post('/register', (req, res) => {
     })
 
     user.save(
-        res.redirect("/login")
+        res.redirect("/")
     )
 })
 
@@ -43,10 +44,6 @@ router.get("/addblog", (req, res) => {
     })
 })
 
-// router.put("/edit/:_id", async (req, res) => {
-//     const newBlog = await Blogs.findById(req.params._id)
-//     res.render()
-// })
 
 router.get("/edit/:_id", async (req, res) => {
     const BlogToEdit = await Blogs.findById(req.params._id)
@@ -55,6 +52,16 @@ router.get("/edit/:_id", async (req, res) => {
         blog: BlogToEdit
     })
 })
+
+router.put('/edit/:id', async (req, res) => {
+    try {
+        const { title, description } = req.body;
+        await Blogs.findByIdAndUpdate(req.params.id, { title, description }, { new: true });
+        res.redirect('/');
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
 
 router.delete("/delete/:_id", async (req, res) => {
     await Blogs.findByIdAndDelete(req.params._id)

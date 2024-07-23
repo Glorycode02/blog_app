@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script defer src="../../js/modal.js"></script> -->
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .name {
+            font-weight: bold;
+            color: dodgerblue;
+        }
+
+        .profile {
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .prof {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: pink;
+        }
+
+        .profiledetails {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: #000;
+            bottom: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="name">
+            Blogger
+        </div>
+        <div class="profile">
+            <div class="prof">
+                <h3>GC</h3>
+            </div>
+            <div class="username">Glorycode</div>
+        </div>
+    </div>
+    <script>
+        const profile = document.querySelector(".profile")
+        profile.addEventListener("click", () => {
+            const profiledetails = document.createElement(".profiledetails")
+            profile.append(profiledetails)
+        })
+
+    </script>
+</body>
+
+</html>

@@ -9,7 +9,7 @@
     </title>
     <style>
         body {
-            background-color: #f3f4f6;
+            background: linear-gradient(to right, #141e30, #243b55);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -17,6 +17,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 10px;
         }
 
         .container {
@@ -74,14 +75,28 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        .cancel {
+            margin-top: 1.5rem;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.25rem;
+            background-color: red;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
         }
 
+
         .image-container {
-            background-image: url('../public/placeholder.jpg');
+            background: #141e30;
             background-size: cover;
             background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: sans-serif;
+            color: #fff;
         }
     </style>
 </head>
@@ -98,8 +113,11 @@
                 <input type="text" name="description" value="<%= blog.description %>" required>
                 <button type="submit">Update</button>
             </form>
+            <a href="/"><button class="cancel">Cancel</button></a>
         </div>
-        <div class="image-container"></div>
+        <div class="image-container">
+            <h3>Edit your blog!!!</h3>
+        </div>
     </div>
 </body>
 
